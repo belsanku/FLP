@@ -6,10 +6,11 @@ print_odd(X,Y):-
 
 print_odd(X, Y):-
     number(X),
-    Y \== X, Y1 is Y - 1, print_odd(X, Y1).
+    (Y =:= X, !; Y1 is Y - 1, print_odd(X, Y1)).
 
 task1(_):-
     read(X), read(Y),
+    write('*'),
     print_odd(X, Y).
 
 
